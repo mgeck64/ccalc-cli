@@ -15,8 +15,9 @@ this CLI frontend.
 the include search patn; e.g., /usr/local/include/ccalc. I have "ccalc" there on
 my system as a symbolic link to my ccalc project directory.
 - The lib files libccalc-rel.a (release library) and libccalc-dbg.a (debugging
-library) are assumed to be discoverable in the lib path; e.g., /usr/local/lib. I
-have libccalc-rel.a and libccalc-dbg.a there on my system as symbolic links to
-the library files in my ccalc project directory (built in lib there).
+library) are assumed to be discoverable in the lib path; e.g., located in
+/usr/local/lib. I have libccalc-rel.a and libccalc-dbg.a there on my system as
+symbolic links to the library files in my ccalc project directory (built in lib
+there).
 - This project also depends on Boost; see ccalc for more information.
 - This project has GNU extensions enabled because ccalc does so.
