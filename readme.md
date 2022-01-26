@@ -9,10 +9,10 @@ floating point (and complex)
 - Supports floating point numbers up to 50 decimal significant digits (+ guard
 digits)
 ## Dependencies
-This project depends on another of my projects, ccalc. ccalc is the backend to
-this CLI frontend.
+This project depends on another of my projects, ccalc. The ccalc project
+provides the backend to this project's CLI frontend.
 - ccalc's header files are assumed to be discoverable in a "ccalc" directory in
-the include search patn; e.g., /usr/local/include/ccalc. I have "ccalc" there on
+the include search path; e.g., /usr/local/include/ccalc. I have "ccalc" there on
 my system as a symbolic link to my ccalc project directory.
 - The lib files libccalc-rel.a (release library) and libccalc-dbg.a (debugging
 library) are assumed to be discoverable in the lib path; e.g., located in
