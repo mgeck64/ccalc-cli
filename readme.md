@@ -19,5 +19,7 @@ library) are assumed to be discoverable in the lib path; e.g., located in
 /usr/local/lib. I have libccalc-rel.a and libccalc-dbg.a there on my system as
 symbolic links to the library files in my ccalc-lib project directory (built in
 lib there).
-- This project also depends on Boost; see ccalc-lib for more information.
-- This project has GNU extensions enabled because ccalc-lib does so.
+
+This project also depends on Boost; see ccalc-lib for more information.
+
+This project has GNU extensions enabled because ccalc-lib does so.
