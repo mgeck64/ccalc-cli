@@ -103,7 +103,7 @@ base for numbers:\n\
     -0dn - Complex type, decimal base; e.g., 10, 10+2i -- the default\n\
     -0xn - Complex type, hexadecimal base; e.g., 0a, 0a+2i\n\
 Complex type: Represents a complex number composed of a real and imaginary part,\n\
-both of which are high precision floating point types (50 significant decimal\n\
+both of which are high precision floating point types (100 significant decimal\n\
 digits). The full form of a complex number can be given in the common form a+bi.\n\
 Examples: 10+2i (real part is 10, imaginary part is 2i), 10 (real number;\n\
 imaginary part is 0), 2i (imaginary number; real part is 0).\n\
@@ -144,7 +144,7 @@ plain hexadecimal. Any of these three forms can be input under either option.\n\
 \n\
 <precision>: -pr<n> specifies the maximum precision (number of significant\n\
 digits) in which a number is output. Affects floating point type (complex type)\n\
-numbers only. E.g., -pr15. The default value is 50. 0 is special and means full\n\
+numbers only. E.g., -pr15. The default value is 25. 0 is special and means full\n\
 precision including guard digits.\n\
 \n\
 <int word size>: Specifies the word size for the integer types:\n\
