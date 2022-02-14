@@ -145,7 +145,7 @@ plain hexadecimal. Any of these three forms can be input under either option.\n\
 <precision>: -pr<n> specifies the maximum precision (number of significant\n\
 digits) in which a number is output. Affects floating point type (complex type)\n\
 numbers only. E.g., -pr15. The default value is 25. 0 is special and means full\n\
-precision including guard digits.\n\
+precision (100 for decimal numbers).\n\
 \n\
 <int word size>: Specifies the word size for the integer types:\n\
     -w8   -   8 bits\n\
