@@ -31,11 +31,14 @@ RELEXE = $(RELDIR)/$(EXE)
 RELOBJS = $(addprefix $(RELDIR)/, $(OBJS))
 RELDEPS = $(RELOBJS:%.o=%.d)
 RELFLAGS = -Os -DNDEBUG
+PREFIX = /usr
+# DestDir, normally undefined, is to allow for staging installations to
+# temporary directories before manually moving them to their actual place
 
-.PHONY: all clean debug release remake
+.PHONY: all clean debug release remake install uninstall
 
 # Default build
-all: release
+all: install
 
 #
 # Debug rules
@@ -43,15 +46,15 @@ all: release
 debug: make_dbgdir $(DBGEXE)
 
 $(DBGEXE): $(DBGOBJS)
-		$(CCXX) -o $(DBGEXE) $^ -lccalc-dbg
+	$(CCXX) -o $(DBGEXE) $^ -lccalc-dbg
 
 -include $(DBGDEPS)
 
 $(DBGDIR)/%.o: %.cpp
-		$(CCXX) -c $(CXXFLAGS) $(DBGFLAGS) -MMD -o $@ $<
+	$(CCXX) -c $(CXXFLAGS) $(DBGFLAGS) -MMD -o $@ $<
 
 $(DBGDIR)/%.o: %.c
-		$(CC) -c $(CFLAGS) $(DBGFLAGS) -MMD -o $@ $<
+	$(CC) -c $(CFLAGS) $(DBGFLAGS) -MMD -o $@ $<
 
 #
 # Release rules
@@ -59,26 +62,36 @@ $(DBGDIR)/%.o: %.c
 release: make_reldir $(RELEXE)
 
 $(RELEXE): $(RELOBJS)
-		$(CCXX) -o $(RELEXE) $^ -lccalc-rel
+	$(CCXX) -o $(RELEXE) $^ -lccalc-rel
 
 -include $(RELDEPS)
 
 $(RELDIR)/%.o: %.cpp
-		$(CCXX) -c $(CXXFLAGS) $(RELFLAGS) -MMD -o $@ $<
+	$(CCXX) -c $(CXXFLAGS) $(RELFLAGS) -MMD -o $@ $<
 
 $(RELDIR)/%.o: %.c
-		$(CC) -c $(CFLAGS) $(RELFLAGS) -MMD -o $@ $<
+	$(CC) -c $(CFLAGS) $(RELFLAGS) -MMD -o $@ $<
+
+#
+# Install/uninstall rules
+#
+
+install: make_reldir $(RELDIR)/$(EXE)
+	sudo install -D $(RELDIR)/$(EXE) $(DESTDIR)$(PREFIX)/bin/$(EXE)
+
+uninstall:
+	sudo rm -f $(DESTDIR)$(PREFIX)/bin/$(EXE)
 
 #
 # Other rules
 #
 make_dbgdir:
-		@mkdir -p $(DBGDIR)
+	@mkdir -p $(DBGDIR)
 
 make_reldir:
-		@mkdir -p $(RELDIR)
+	@mkdir -p $(RELDIR)
 
 remake: clean all
 
 clean:
-		@rm -r -f $(RELDIR) $(DBGDIR)
+	@rm -r -f $(RELDIR) $(DBGDIR)
