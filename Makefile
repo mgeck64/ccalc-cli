@@ -1,9 +1,12 @@
+PREFIX = /usr
+BOOST_PREFIX = $(PREFIX)/local
+
 #
 # Compiler flags
 #
 CCXX   = g++
 CC     = gcc
-CXXFLAGS = -Wall -Werror -Wextra -std=gnu++20 -isystem /usr/local/include/boost_1_74_0
+CXXFLAGS = -Wall -Werror -Wextra -std=gnu++20 -isystem $(BOOST_PREFIX)/include/oost_1_74_0
 CFLAGS   = -Wall -Werror -Wextra
 
 #
@@ -31,9 +34,8 @@ RELEXE = $(RELDIR)/$(EXE)
 RELOBJS = $(addprefix $(RELDIR)/, $(OBJS))
 RELDEPS = $(RELOBJS:%.o=%.d)
 RELFLAGS = -Os -DNDEBUG
-PREFIX = /usr
-# DestDir, normally undefined, is to allow for staging installations to
-# temporary directories before manually moving them to their actual place
+# set DestDir to allow for staging installations to temporary directories before
+# manually moving them to their actual place
 
 .PHONY: all clean debug release remake install uninstall
 
