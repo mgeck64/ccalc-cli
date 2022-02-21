@@ -79,10 +79,10 @@ $(RELDIR)/%.o: %.c
 #
 
 install: make_reldir $(RELDIR)/$(EXE)
-	sudo install -D $(RELDIR)/$(EXE) $(DESTDIR)$(PREFIX)/bin/$(EXE)
+	install -D $(RELDIR)/$(EXE) $(DESTDIR)$(PREFIX)/bin/$(EXE)
 
 uninstall:
-	sudo rm -f $(DESTDIR)$(PREFIX)/bin/$(EXE)
+	rm -f $(DESTDIR)$(PREFIX)/bin/$(EXE)
 
 #
 # Other rules
