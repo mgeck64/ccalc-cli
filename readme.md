@@ -29,4 +29,4 @@ current working directory
 - 'make release' builds the release executable in a "release" directory under
 the current working directory
 - 'make uninstall' deletes the execuable from /usr/bin
-- The makefile provides more make targets; peruse it for details
+- The makefile provides more make targets and options; peruse it for details
