@@ -22,11 +22,16 @@ details.
 
 This project has GNU extensions enabled because ccalc-lib does so.
 ## Build Quick Help
-- 'make' or 'make install' builds the release executable as described below for
-'make release', and then installs it under /usr/bin
-- 'make debug' builds the debug executable in a "debug" directory under the
-current working directory
-- 'make release' builds the release executable in a "release" directory under
+- 'make' and 'make release' builds the release executable 'ccalc' in a 'release'
+directory under the current working directory
+- 'make debug' builds the debug executable 'ccalc' in a 'debug' directory under
 the current working directory
-- 'make uninstall' deletes the execuable from /usr/bin
-- The makefile provides more make targets and options; peruse it for details
+- 'sudo make install' builds the release executable as described above, unless
+already so, and:
+    - installs the executable to /usr/bin
+    - installs the .desktop file to /usr/share/applications
+- 'make clean' deletes the release and debug directories under the current
+working directory
+- 'sudo make uninstall':
+    - deletes the executable from /usr/bin
+    - deletes the .desktop file from /usr/share/applications
